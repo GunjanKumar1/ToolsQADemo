@@ -120,47 +120,7 @@ class ToolsQAPage extends page{
     }
     public async switchToParent(){
         browser.switchToParentFrame();
-    }
-
-
-    public async getHeader(){
-        browser.switchToFrame( this.Iframeid);
-       let tit= await this.pageTitle.getAttribute('src');
-       
-       expect( await this.pageTitle.getAttribute('src')).toContain("Toolsqa");
-      // let title=await this.pageTitle.getText(); 
-       console.log(tit+"323333333333333333333333333333333333333333333333333333");
-       
-       await (await this.elementCard).scrollIntoView();
-       await this.elementCard.click();
-       await browser.pause(10000);
-       browser.switchToParentFrame();
-       browser.switchToFrame( this.Iframeid);
-       let elementHeader=await this.elementPageHeader.getText();
-       console.log(elementHeader+"#$#$#$#$#$#$#$#$#$#$#$#$#$#$#$#$#$#$#$#$#$#$");
-      expect(elementHeader).toEqual("Elements");
-      let ElementmenuExp= await this.elementMenuAttribute.getAttribute('class');
-      console.log(ElementmenuExp);
-      expect(ElementmenuExp).toEqual('element-list collapse show');
-      let subMenuLinkText1=new Array();
-      await this.subMenuLinkText.forEach(async(element) => {
-       // subMenuLinkText1.push(await element.getText());
-        console.log(await element.getText()+'********************************************');
-        if((await element.getText()==='Text Box') || (await element.getText()==='Check Box')){
-            console.log(await element.getText()+'%%%%%%%%%%%%%%^^^^^^^^^^^^^^^^^^^');
-            subMenuLinkText1.push(await element.getText());
-        }
-      })
-      console.log(subMenuLinkText1.length+'  *********0000000000++++++++++++++++++++++++++++***********');
-        expect(subMenuLinkText1.length).toEqual(2);
-        await this.subMenuLinkText.forEach(async(element) => {
-             if(await element.getText()==='Text Box'){
-                 await element.click();
-             }
-           })
-           await browser.pause(10000);
-
-    }
+    } 
         
     }
 export default new ToolsQAPage();
