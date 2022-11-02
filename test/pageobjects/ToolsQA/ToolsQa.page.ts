@@ -47,9 +47,9 @@ class ToolsQAPage extends page{
     }
 
     public async verifyTitle(){
-        browser.switchToFrame( this.Iframeid);
-        let tit= await this.pageTitle.getAttribute('src');
-        expect( await this.pageTitle.getAttribute('src')).toContain("Toolsqa");
+       
+        let title=await browser.getTitle();
+        expect(title ).toEqual("ToolsQA");
     }
     public async clickOnElementCard(){
         await (await this.elementCard).scrollIntoView();
