@@ -4,15 +4,14 @@ describe('verify Tools qa', async function(){
     it('Verify home page title is ToolsQA', async function(){
      
         await ToolsQaPage.open();
-        await ToolsQaPage.switchToFrame();
         await ToolsQaPage.verifyTitle();
     })
 
     it('Verify sub items are expender by default or all card items', async function(){
      
         await ToolsQaPage.open();
-        await ToolsQaPage.switchToFrame();
         await ToolsQaPage.verifyTitle();
+        await ToolsQaPage.switchToFrame();
         await ToolsQaPage.clickOnElementCard();
         await ToolsQaPage.switchToParent();
         await ToolsQaPage.switchToFrame();
@@ -26,8 +25,8 @@ describe('verify Tools qa', async function(){
     it('Fill text box form and Submit', async function(){
      
         await  ToolsQaPage.open();
-        await ToolsQaPage.switchToFrame();
         await ToolsQaPage.verifyTitle();
+        await ToolsQaPage.switchToFrame();
         await ToolsQaPage.clickOnElementCard();
         await ToolsQaPage.switchToParent();
         await ToolsQaPage.switchToFrame();
