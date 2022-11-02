@@ -1,4 +1,5 @@
 import page from "../page";
+import * as EC from 'wdio-wait-for';
 
 class ToolsQAPage extends page{
     private get pageTitle(){
@@ -49,12 +50,13 @@ class ToolsQAPage extends page{
     public async verifyTitle(){
        
         let title=await browser.getTitle();
+        browser.waitUntil(EC.elementToBeEnabled('input'));
         expect(title ).toEqual("ToolsQA");
     }
     public async clickOnElementCard(){
         await (await this.elementCard).scrollIntoView();
+        browser.waitUntil(EC.elementToBeClickable(this.elementCard));
         await this.elementCard.click();
-        await browser.pause(5000);
     }
     public async verfyElementPageTitle(){
         let elementHeader=await this.elementPageHeader.getText();
@@ -89,7 +91,6 @@ class ToolsQAPage extends page{
     }
     public async clickOnCloapsIconOfElementMenue(){
         await this.elemetMenuCollapseIcon.click();
-        await browser.pause(3000);
     }
 
     public async clickOnTexBoxMenuItem(){
