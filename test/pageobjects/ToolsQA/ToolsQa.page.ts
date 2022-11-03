@@ -54,7 +54,7 @@ class ToolsQAPage extends page{
         expect(title ).toEqual("ToolsQA");
     }
     public async clickOnElementCard(){
-        await (await this.elementCard).scrollIntoView();
+        await this.elementCard.scrollIntoView();
         browser.waitUntil(EC.elementToBeClickable(this.elementCard));
         await this.elementCard.click();
     }
@@ -69,7 +69,7 @@ class ToolsQAPage extends page{
     }
     public async verifyItemsInSubMenuDisplayed(){
         let subMenuLinkText1=new Array();
-      await this.subMenuLinkText.forEach(async(element) => {
+        await this.subMenuLinkText.forEach(async(element) => {
         if(await element.getText()==='Text Box'){
           expect(await element.isDisplayed()).toBe(true);
         }
@@ -101,14 +101,14 @@ class ToolsQAPage extends page{
           })
     }
     public async fillTextBoxForm(){
-        await (await this.fullNameTextBox).scrollIntoView();
-        await (await this.fullNameTextBox).setValue("test1");
-        await (await this.userEmailTextBox).setValue("test@test.com");
-        await (await this.currAddressTextBox).setValue("Current address");
-        await (await this.perAddressTextBox).setValue("Parmanent address");
-        await (await this.submitButton).scrollIntoView();
+        await this.fullNameTextBox.scrollIntoView();
+        await this.fullNameTextBox.setValue("test1");
+        await this.userEmailTextBox.setValue("test@test.com");
+        await this.currAddressTextBox.setValue("Current address");
+        await this.perAddressTextBox.setValue("Parmanent address");
+        await this.submitButton.scrollIntoView();
         expect(await this.submitButton.isClickable()).toBe(true);
-        await (await this.submitButton).click();
+        await this.submitButton.click();
     }
     public async verifyTextboxFormAfterSubmit(){
         expect(await this.fullNameTextBox.getValue()).toEqual("test1");
